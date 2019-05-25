@@ -1,0 +1,74 @@
+.signup-login-form-container {
+  .signup-login-form {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    position: fixed;
+    top: calc(50vh - 180px - 30px);
+    left: calc(50vw - 180px - 30px);
+    width: 360px;
+  }
+  input {
+    height: 30px;
+    margin: 10px 10px;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #868686;
+    border-radius: .25rem;
+  }
+  button {
+    height: 44px;
+    margin: 10px 10px;
+    background: #007a5a;
+    color: whitesmoke;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: .25rem;
+    text-align: center;
+  }
+  h2 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 32px;
+    text-align: center;
+  }
+
+  button:hover {
+    height: 44px;
+    margin: 10px 10px;
+    background: #00aa7d;
+    color: white;
+    cursor: pointer;
+  }
+
+  p {
+    box-shadow: inset 0 0 0 2px #616061;
+    color: #616061;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: .25rem;
+    margin-top: 10px;
+  }
+  p:hover {
+    color: black;
+    box-shadow: inset 0 0 0 2px black;
+  }
+
+  display: block;
+  height: calc(100vh - 20px);
+  width: 100vw;
+  background-color: whitesmoke;
+}
+
+.login-header {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    background: #fff;
+    height: 70px;
+    font-size: 38px;
+    padding: 20px 20px 0 20px;
+    display: flex;
+    justify-content: space-between;
+}

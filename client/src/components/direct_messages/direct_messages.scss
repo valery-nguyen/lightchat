@@ -1,0 +1,153 @@
+.log-out-button-container {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.log-out-button {
+  display: flex;
+  justify-content: center;
+  color: rgb(197,183,198);
+  width: 100%;
+  padding: 10px;
+  // margin-right: 10px;
+}
+
+.log-out-button:hover {
+  color: whitesmoke;
+  background-color: rgb(53, 14, 64);
+}
+
+.direct-messages-list {
+  margin-top: 20px;
+  color: rgb(197,183,198);
+}
+
+.direct-message-header {
+  h5 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  span {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+  }
+  h5:hover,
+  span:hover {
+    color: whitesmoke;
+  }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: lighter;
+  padding-bottom: 5px;
+  padding-left: 12px;
+}
+
+.direct-message-link {
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  margin-left: 25px;
+  width: 100%;
+}
+
+.no-direct-messages {
+  padding-top: 10px;
+  font-size: 14px;
+  text-decoration: none;
+  margin-left: 10px;
+  padding-left: 12px;
+}
+
+.direct-message-name {
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.direct-message-name:hover {
+  background-color: black;
+  opacity: .2;
+  z-index: 1;
+  width: 100%;
+  color: white;
+}
+
+
+.channel-links-container {
+  h3:hover {
+    background-color: rgb(53, 14, 64);
+  }
+  padding-left: 5px;
+}
+
+.dm-detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dm-button {
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  background: white;
+  height: 25px;
+  color: grey;
+  width: 115px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid grey;
+  margin-top: 12px;
+}
+
+.dm-info {
+  font-size: 13px;
+  color: #616061;
+  font-family: sans-serif;
+}
+
+.dm-name-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 11px;
+}
+
+.dm-name-container:hover {
+  background-color: rgb(53, 14, 64);
+  cursor: pointer;
+  width: 100%;
+}
+
+.dm-name-container button:hover{
+  color: whitesmoke;
+}
+
+.dm-link h3 {
+  color: rgb(197,183,198);
+  font-size: 13px;
+  text-decoration: none;
+  width: 100%;
+  font-weight: lighter;
+  padding-right: 10px;
+  margin: 3px 2px;
+}
+
+.dm-name {
+  width: 100%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin: 0;
+  box-sizing: border-box;
+}

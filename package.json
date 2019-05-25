@@ -1,0 +1,41 @@
+{
+  "name": "lightchat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "client-install": "npm install --prefix client",
+    "client": "npm start --prefix client",
+    "server": "nodemon index.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-link-ws": "^1.0.17",
+    "apollo-server": "^2.5.0",
+    "apollo-server-express": "^2.5.0",
+    "apollo-utilities": "^1.2.1",
+    "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.0",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.2.1",
+    "graphql-iso-date": "^3.6.1",
+    "http": "0.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.5.0",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.18.11",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
+    "subscriptions-transport-ws": "^0.9.16",
+    "validator": "^10.11.0"
+  }
+}

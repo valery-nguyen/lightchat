@@ -1,0 +1,257 @@
+.whole-index {
+  display: flex;
+}
+
+#add-a-channel {
+  color: rgb(197,183,198);
+  font-size: 14px;
+  text-decoration: none;
+  width: 100%;
+  font-weight: lighter;
+  margin: 3px 2px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin: 0;
+  box-sizing: border-box;
+  margin-left: 15px;
+}
+
+.channel-header a:hover{
+  color: whitesmoke;
+}
+
+#add-a-channel:hover {
+  // background-color: rgb(53, 14, 64);
+}
+
+.channel-list {
+  color: rgb(197,183,198);
+  margin-top: 15px;
+  font-size: 14px;
+  // width: 100%;
+}
+
+.channel-header {
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 12px;
+}
+
+.channel-link h3 {
+  color: rgb(197,183,198);
+  font-size: 13px;
+  text-decoration: none;
+  width: 100%;
+  font-weight: lighter;
+  padding-right: 10px;
+  margin: 3px 2px;
+}
+
+.channel-link {
+  width: 100%;
+}
+
+.channel-index-link {
+  font-size: 15px;
+  margin-left: 10px;
+  color: #1d1c1d;
+  text-decoration: none;
+}
+
+.channel-index {
+  p {
+    padding-left: 12px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  margin-top: 100px;
+  width: 600px;
+  font-family: sans-serif;
+}
+
+.channel-index-create {
+  p{
+    padding-left: 12px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  width: 600px;
+  font-family: sans-serif;
+}
+
+.channel-index-create-container {
+  background-image: url('/bg-channel-create.png');
+  background-position: bottom right; 
+  background-repeat: no-repeat;
+  background-size: 40%;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+
+.channel-index-name {
+  margin-bottom: -15px;
+}
+
+.channel-index-header {
+  font-size: 34px;
+}
+
+.channel-name-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 12px;
+}
+
+.channel-name-container button:hover{
+  color: whitesmoke;
+}
+
+.channel-name {
+  width: 100%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.channel-name-container:hover {
+  background-color: rgb(53, 14, 64);
+  cursor: pointer;
+  width: 100%;
+}
+
+.channel-browse-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.create-channel-button {
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  background: #007a5a;
+  height: 35px;
+  color: white;
+  width: 135px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.channel-search-input {
+	width: 94%;
+	padding: 14px;
+	padding-left: 20px;
+	border-radius: 5px;
+	border: 1px solid darkgrey;
+}
+
+.channel-button-box {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.channel-new-name-container {
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.channel-new-name {
+  width: 400px;
+  height: 34px;
+  font-size: 16px;
+  padding-left: 10px;
+  margin-right: 20px;
+  border: 1px solid grey;
+}
+
+.channel-info {
+  font-size: 13px;
+  margin-left: 10px;
+  color: #616061;
+  font-family: sans-serif;
+}
+
+.channels-box {
+  margin-top: 10px;
+}
+
+.channel-info-box {
+  margin-bottom: -5px;
+  margin-top: -5px;
+}
+
+.join-channel-button {
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  background: white;
+  height: 25px;
+  color: grey;
+  width: 115px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.create-channel-button {
+}
+
+.go-channel-button {
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  background: white;
+  height: 25px;
+  color: grey;
+  width: 110px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid grey;
+  align-items: center;
+  text-decoration: none;
+}
+
+.channel-index-exit {
+  text-decoration: none;
+  font-size: 40px;
+  color: grey;
+  margin-right: 3px;
+  margin-bottom: -20px;
+}
+
+.exit-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  color: grey;
+  margin-right: -100px;
+  margin-top: 50px;
+}
+
+.esc {
+  font-size: 12px;
+  margin-right: 7px;
+  font-family: sans-serif;
+}
+
+.add-channel-button-plus {
+  margin-right: 12px;
+}
+
+.leave-channel-button-x {
+  margin-right: 12px;
+}
