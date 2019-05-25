@@ -13,6 +13,18 @@ class Login extends React.Component {
       email: "",
       password: ""
     };
+
+    this.guestLogIn = this.guestLogIn.bind(this);
+  }
+
+  guestLogIn(e, loginUser) {
+    e.preventDefault();
+    loginUser({
+      variables: {
+        email: 'valery@lightchat.com',
+        password: 'password'
+      }
+    });
   }
 
   update(field) {
@@ -43,8 +55,8 @@ class Login extends React.Component {
         {loginUser => (
           <div className="signup-login-form-container">
             <div className="login-header">
-              <h1>Welcome to LightChat</h1>
-              <Link to="/signup"><p>Sign Up</p></Link>
+              <h1>LightChat</h1>
+              <Link to="/signup"><p>Create a new account</p></Link>
             </div>
             <form className="signup-login-form"
               onSubmit={e => {
@@ -70,7 +82,11 @@ class Login extends React.Component {
                 placeholder="Password"
               />
              <button type="submit">Sign In</button>
+              <div className="guest-login-container">
+                <button id="guest-login" className="guest-login" onClick={e => this.guestLogIn(e, loginUser)}> Guest Log In </button>
+              </div>
             </form>
+            
           </div>
         )}
       </Mutation>

@@ -44,8 +44,8 @@ class Signup extends Component {
         {signupUser => (
           <div className="signup-login-form-container">
             <div className="login-header">
-              <h1>Welcome to LightChat</h1>
-              <Link to="/signin"><p>Log In</p></Link>
+              <h1>LightChat</h1>
+              <Link to="/signin"><p>Sign in to your account</p></Link>
             </div>
             <form className="signup-login-form"
               onSubmit={e => {
