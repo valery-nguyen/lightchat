@@ -16,7 +16,7 @@ class UserChannelIndex extends React.Component {
       return <Query query={FETCH_USER_CHANNELS} variables={{ id: this.props.currentUserId }}>
         {({ data }) => {
           let name = '';
-          if (data.userChannels) {
+          if (data.userChannels && data.userChannels[0]) {
             data.userChannels[0].users.forEach(user => {
               if (user._id === this.props.currentUserId) name = name || user.name;
             });

@@ -55,7 +55,6 @@ class ChannelDetail extends React.Component {
           const fetchChannelData = data;
           return (
             <div className="channels-box">
-              <hr />
               <div className="channel-detail-box">
                 <div className="channel-info-box">
                   <h3 className="channel-index-name"><a className="channel-index-link" href={`/#/channels/${fetchChannelData.channel._id}`}># {data.channel.name}</a></h3>    

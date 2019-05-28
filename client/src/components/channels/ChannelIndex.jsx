@@ -34,6 +34,7 @@ class ChannelIndex extends React.Component {
                       null
                     ) : (
                         <div>
+                          <hr />
                           {channelData.channels.map(channel => {
                             inChannel = false;
                             channel.users.forEach(user => {
