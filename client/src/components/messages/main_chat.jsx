@@ -1,5 +1,4 @@
 import './messages.scss';
-import { useEffect, useRef } from 'react';
 import React from 'react';
 import { Query, Subscription } from "react-apollo";
 import Queries from "../../graphql/queries";
@@ -10,16 +9,6 @@ const { FETCH_CHANNEL } = Queries;
 const { NEW_MESSAGE_SUBSCRIPTION, REMOVED_MESSAGE_SUBSCRIPTION } = Subscriptions;
 
 class MainChat extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-  }
-
-  componentDidUpdate() {
-  }
-
   render() {
     let channelId;
 
@@ -80,7 +69,7 @@ class MainChat extends React.Component {
                                 <div className="message-box">
                                   <div className="message-info">
                                     <p className="message-author">{message.author}</p>
-                                    <p className="message-date">{message.date}</p>
+                                    <p className="message-date">{message.date.slice(0, 10)} {parseInt(message.date.slice(11, 13)) - 4}:{message.date.slice(14, 16)}{((parseInt(message.date.slice(11, 13)) - 4) >= 12) ? 'pm' : 'am'}</p>
                                   </div>
                                   <p className="message-body">{message.body}</p>
                                 </div>

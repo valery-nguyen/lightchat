@@ -55,11 +55,11 @@ class ChannelDetail extends React.Component {
           const fetchChannelData = data;
           return (
             <div className="channels-box">
-              
+              <hr />
               <div className="channel-detail-box">
                 <div className="channel-info-box">
                   <h3 className="channel-index-name"><a className="channel-index-link" href={`/#/channels/${fetchChannelData.channel._id}`}># {data.channel.name}</a></h3>    
-                  <h4 className="channel-info"> Created by {data.channel.host_name} on {data.channel.created_at} </h4>  
+                  <h4 className="channel-info"> Created by {data.channel.host_name} on {data.channel.created_at.slice(0,10)} </h4>  
                 </div>  
 
                 <div className="channel-button-box">      

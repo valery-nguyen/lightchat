@@ -30,16 +30,6 @@ class ChannelIndex extends React.Component {
 
                       <Link to="/channels/new"><button className="create-channel-button">Create Channel</button></Link>
                     </div>
-                  
-                    <div>
-                    <form className="channel-search">
-                      <input
-                        placeholder="Search channels"
-                        className="channel-search-input"
-                      />
-                    </form>
-                    
-                    </div>
                     {!channelData.channels || !channelData.channels.length ? (
                       null
                     ) : (
@@ -50,6 +40,7 @@ class ChannelIndex extends React.Component {
                               if (user._id === userId) inChannel = true;
                             })
                             if (!inChannel) return <ChannelDetail key={channel._id} id={channel._id} userId={userId}/>;
+                            return null;
                           })}
                         </div>
                       )}

@@ -7,6 +7,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 12px;
+    cursor: default;
   }
 
   height: auto;
@@ -77,4 +78,27 @@
 .vl {
   border: 1px solid lightgrey;
   height: 10px;
+}
+
+.perso-links {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.icon-linkedin {
+  height: auto;
+  width: 30px;
+}
+
+.icon-angel {
+  height: auto;
+  width: 26px;
+}
+
+.icon-github {
+  height: auto;
+  width: 30px;
 }

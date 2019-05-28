@@ -1,7 +1,6 @@
 import React from 'react';
 
 export const HeaderConsole = (props) => {
-  
   return (
     <div className="header-wrapper">
       <div className="header-stuff">
@@ -19,5 +18,4 @@ export const HeaderConsole = (props) => {
       </div>
     </div>
   )
-
 };

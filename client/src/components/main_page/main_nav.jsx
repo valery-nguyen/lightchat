@@ -38,6 +38,11 @@ const MainNav = props => {
                         Log out
                     </button>
                     </div>
+                    <div className="perso-links">
+                      <a href="https://www.linkedin.com/in/valeryn/" target="_blank" className="personal-links" rel="noopener noreferrer"><img src='/images/linkedin_icon.png' className="icon-linkedin" alt="linkedin icon"></img></a>
+                      <a href="https://angel.co/valeryn" target="_blank" className="personal-links" rel="noopener noreferrer"><img src='/images/angel_icon.png'className="icon-angel" alt="angelist icon"></img></a>
+                      <a href="https://github.com/valery-nguyen/lightchat" target="_blank" className="personal-links" rel="noopener noreferrer"><img src='/images/github_icon.png'className="icon-github" alt="github icon"></img></a>
+                    </div>
                   </div>
                 </div>
               }

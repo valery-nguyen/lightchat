@@ -68,8 +68,8 @@ class DMChat extends React.Component {
                           <img className="message-pic" src={require('./pika.jpg')} alt="pika"/>
                             <div className="message-box">
                               <div className="message-info">
-                                  <p className="message-author">{messageAuthor}</p>
-                                <p className="message-date">{message.date}</p>
+                                <p className="message-author">{messageAuthor}</p>
+                                  <p className="message-date">{message.date.slice(0, 10)} {parseInt(message.date.slice(11, 13)) - 4}:{message.date.slice(14, 16)}{((parseInt(message.date.slice(11, 13)) - 4) >= 12) ? 'pm' : 'am'}</p>
                               </div>
                               <p className="message-body">{message.body}</p>
                             </div>
