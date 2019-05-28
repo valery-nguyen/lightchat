@@ -132,7 +132,6 @@ const removeChannelUser = async (data, context) => {
   }
 };
 
-//VTN: verify that addchannelMessage works when messages are ready
 const addChannelMessage = async (data, context) => {
   try {
     // check for loggedin user

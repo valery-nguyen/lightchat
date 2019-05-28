@@ -8,7 +8,6 @@ const { FETCH_DIRECT_MESSAGES } = Queries;
 const { NEW_DIRECT_MESSAGE_SUBSCRIPTION } = Subscriptions;
 
 class DMChat extends React.Component {
-
   namesGetter(usersArray) {
     let names = "";
     usersArray.forEach((user) => {
@@ -18,18 +17,6 @@ class DMChat extends React.Component {
       }
     });
     return names.slice(0, -2);
-  }
-
-  componentDidMount() {
-    window.addEventListener('DOMContentLoaded', (event) => {
-      console.log('DOM fully loaded and parsed');
-      console.log(document.getElementById("empty"));
-    });
-    // let el;
-    // window.onload = () => (console.log(document));
-    // console.log(document);
-    // console.log(el);
-    // .scrollIntoView();
   }
 
   render() {
