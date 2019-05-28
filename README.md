@@ -10,6 +10,7 @@ Check out the [wiki] for development details!
 
 ## Deployment
 
+* [Docker](https://www.docker.com/)
 * [Hosted on Heroku](https://www.heroku.com/)
 
 ## Built With
@@ -26,8 +27,7 @@ Check out the [wiki] for development details!
 
 ## Acknowledgments
 
-* The starter group project can be found [here](https://github.com/valery-nguyen/ezeechat), which was developed in collaboration with 
-Chris Meurer and Colin Reitman.
+* The starter group project can be found [here](https://github.com/valery-nguyen/ezeechat), which was developed in collaboration with Chris Meurer and Colin Reitman.
 
 [//]: # (reference links are listed below)
 [LightChat is LIVE!]: <https://lightchat-app.herokuapp.com/>
