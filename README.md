@@ -18,7 +18,7 @@ npm install
 
 ## Run
 
-* Set up the mongoURI and secretOrKey
+* Set up the MONGO_URI and secretOrKey
 ```
 // config/keys_dev.js
 
