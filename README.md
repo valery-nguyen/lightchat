@@ -38,14 +38,13 @@ npm run dev
 ## Deployment
 
 * [Docker](https://www.docker.com/)
+* Hosted on [Heroku](https://www.heroku.com/)
 
 ```
 heroku container:login
 heroku container:push web --recursive -a lightchat-app
 heroku container:release web -a lightchat-app
 ```
-
-* Hosted on [Heroku](https://www.heroku.com/)
 
 ## Built With
 
