@@ -2,7 +2,7 @@
 
 LightChat, a Slack.com clone, is an application giving users the possibility to communicate through posting on channels or sending direct messages.
 
-![screenshot](https://user-images.githubusercontent.com/13773733/58668650-8f146900-8307-11e9-9085-710e2967ac72.jpg)
+![screenshot](https://user-images.githubusercontent.com/13773733/58672477-16b4a480-8315-11e9-8779-eb32b379005a.png)
 
 ## Getting Started
 
