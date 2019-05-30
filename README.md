@@ -48,11 +48,11 @@ heroku container:release web -a lightchat-app
 
 ## Built With
 
-* [MongoDB](https://www.mongodb.com/)
-* [Express](https://expressjs.com/)
-* [React](https://reactjs.org)
 * [GraphQL](https://graphql.org)
-* [Node](https://nodejs.org/)
+* [MongoDB](https://www.mongodb.com/)
+* [Express.js](https://expressjs.com/)
+* [React.js](https://reactjs.org)
+* [Node.js](https://nodejs.org/)
 
 ## Authors
 
