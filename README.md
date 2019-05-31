@@ -2,8 +2,6 @@
 
 LightChat, a Slack.com clone, is an application giving users the possibility to communicate through posting on channels or sending direct messages.
 
-![screenshot](https://user-images.githubusercontent.com/13773733/58672477-16b4a480-8315-11e9-8779-eb32b379005a.png)
-
 ## Getting Started
 
 Check out the [wiki] for development details!
@@ -58,8 +56,7 @@ heroku container:release web -a lightchat-app
 
 ## Technical Implementation Details
 
-* Setting up a HTTP server to serve GraphQL queries and mutations, as well as a WebSocket server to handle subscriptions,
-both servers listening on one unique port.
+* **Server side:** setting up a HTTP server to serve GraphQL queries and mutations, as well as a WebSocket server to handle subscriptions, both servers listening on one unique port
 
 ```js
 // server/server.js
@@ -99,7 +96,7 @@ ws.listen(port, () => {
 });
 ```
 
-* Setting up HTTP and WebSocket links on the client side.
+* **Client side:** setting up the HTTP and WebSocket links
 
 ```js
 // client/src/index.js
@@ -144,6 +141,108 @@ const link = split(
   httpLink
 );
 ```
+
+* **Server side:** subscriptions implementation
+
+**Pubsub:**
+
+```js
+// server/schema/pubsub.js
+
+const { PubSub } = require('apollo-server');
+const pubsub = new PubSub();
+module.exports = pubsub;
+```
+
+**Schema:**
+
+```js
+// server/schema/schema.js
+
+module.exports = new GraphQLSchema({
+  query,
+  mutation,
+  subscription
+});
+```
+
+**Subscriptions:**
+
+```js
+// server/schema/subscriptions.js
+
+const subscription = new GraphQLObjectType({
+  name: "Subscription",
+  fields: () => ({ messageSent, ... })
+});
+
+const messageSent = {
+  type: MessageType,
+  resolve(data) {
+    return data.messageSent;
+  },
+  subscribe: withFilter(
+    () => pubsub.asyncIterator(['MESSAGE_SENT']),
+    (payload, variables) => {
+      return true;
+    }
+  )
+};
+```
+
+**Publish:**
+
+```js
+// server/schema/services/messages.js
+
+const addMessage = async (data, context) => {
+  ...
+  
+  await pubsub.publish('MESSAGE_SENT', { messageSent: message, channel: channel});
+  ...
+};
+```
+
+* **Client side:** subscriptions implementation
+
+**Subscriptions:**
+
+```js
+// client/src/graphql/subscriptions.js
+
+export default {
+  NEW_MESSAGE_SUBSCRIPTION: gql`
+    subscription onMessageSent {
+      messageSent {
+        _id
+        user_id
+        body
+        date
+        channel
+        author
+      }
+    }
+  `,
+  ...
+}
+```
+
+**React component:**
+
+```js
+// client/src/components/messages/main_chat.js
+
+<Subscription subscription={NEW_MESSAGE_SUBSCRIPTION}>
+  {({ data, loading }) => {
+      ...
+    }
+  }
+</Subscription>
+```
+
+## Screenshots
+
+![screenshot](https://user-images.githubusercontent.com/13773733/58672477-16b4a480-8315-11e9-8779-eb32b379005a.png)
 
 ## Authors
 
