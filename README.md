@@ -56,6 +56,95 @@ heroku container:release web -a lightchat-app
 * [React.js](https://reactjs.org)
 * [Node.js](https://nodejs.org/)
 
+## Technical Implementation Details
+
+* Setting up a HTTP server to serve GraphQL queries and mutations, as well as a WebSocket server to handle subscriptions,
+both servers listening on one unique port.
+
+```js
+// server/server.js
+
+const express = require("express");
+const  { createServer } = require('http');
+const  { SubscriptionServer } = require('subscriptions-transport-ws');
+
+const app = express();
+app.use(
+  "/graphql",
+  expressGraphQL(req => {
+    return {
+      schema,
+      context: {
+        token: req.headers.authorization
+      },
+      graphiql: true
+    };
+  })
+);
+
+const ws = createServer(app);
+SubscriptionServer.create({
+  execute,
+  subscribe,
+  schema,
+}, {
+    server: ws,
+    path: '/',
+});
+
+const port = process.env.PORT || 5000;
+ws.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+  console.log(`WebSocket listening on port ${port}`);
+});
+```
+
+* Setting up HTTP and WebSocket links on the client side.
+
+```js
+// client/src/index.js
+
+let uri;
+if (process.env.NODE_ENV === "production") {
+  uri = `/graphql`;
+} else {
+  uri = "http://localhost:5000/graphql";
+}
+
+const httpLink = createHttpLink({
+  uri,
+  headers: {
+    authorization: localStorage.getItem('auth-token') || ""
+  }
+});
+
+let wsUri;
+if (process.env.NODE_ENV === "production") {
+  wsUri = "wss://" + window.location.host +  "/";
+} else {
+  wsUri = "ws://localhost:5000/";
+}
+
+const wsLink = new WebSocketLink({
+  uri: wsUri,
+  options: {
+    reconnect: true,
+    connectionParams: {
+      authorization: localStorage.getItem('auth-token') || ""
+    },
+  }
+});
+
+const link = split(
+  ({ query }) => {
+    const { kind, operation } = getMainDefinition(query);
+    return kind === 'OperationDefinition' && operation === 'subscription';
+  },
+  wsLink,
+  httpLink
+);
+```
+
 ## Authors
 
 * **Valery Nguyen**
