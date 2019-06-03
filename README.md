@@ -2,6 +2,19 @@
 
 LightChat, a Slack.com clone, is an application giving users the possibility to communicate through posting on channels or sending direct messages.
 
+## Built With
+
+* [GraphQL](https://graphql.org)
+* [MongoDB](https://www.mongodb.com/)
+* [Express.js](https://expressjs.com/)
+* [React.js](https://reactjs.org)
+* [Node.js](https://nodejs.org/)
+
+## Deployment
+
+* [Docker](https://www.docker.com/)
+* Hosted on [Heroku](https://www.heroku.com/)
+
 ## Getting Started
 
 Check out the [wiki] for development details!
@@ -35,24 +48,13 @@ module.exports = {
 npm run dev
 ```
 
-## Deployment
-
-* [Docker](https://www.docker.com/)
-* Hosted on [Heroku](https://www.heroku.com/)
+## Deployment and Release
 
 ```
 heroku container:login
 heroku container:push web --recursive -a lightchat-app
 heroku container:release web -a lightchat-app
 ```
-
-## Built With
-
-* [GraphQL](https://graphql.org)
-* [MongoDB](https://www.mongodb.com/)
-* [Express.js](https://expressjs.com/)
-* [React.js](https://reactjs.org)
-* [Node.js](https://nodejs.org/)
 
 ## Technical Implementation Details
 
