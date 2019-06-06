@@ -1,8 +1,9 @@
 {
   "name": "lightchat",
   "version": "1.0.0",
-  "description": "",
+  "description": "Web-based Communication App developed and deployed using GraphQL and Docker, built on MERN stack",
   "main": "index.js",
+  "repository": "https://github.com/valery-nguyen/lightchat",
   "scripts": {
     "start": "node index.js",
     "client-install": "npm install --prefix client",
