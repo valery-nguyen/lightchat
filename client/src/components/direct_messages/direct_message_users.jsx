@@ -1,10 +1,9 @@
-import './users.scss';
+import "./users.scss";
 import React from "react";
 import { Query, Mutation } from "react-apollo";
 import Queries from "../../graphql/queries";
-import Mutations from '../../graphql/mutations';
+import Mutations from "../../graphql/mutations";
 import { withRouter } from "react-router";
-
 
 const { FETCH_USERS, FETCH_USER_MESSAGES, CURRENT_USER } = Queries;
 const { CREATE_DIRECT_MESSAGE } = Mutations;
@@ -47,7 +46,6 @@ class DirectMessageUsers extends React.Component {
                       refetchQueries={() => [{ query: FETCH_USER_MESSAGES, variables:{ id: currentUserId } }]}
                     >
                       {(createDirectMessage, { data }) => {
-                        
                         return (
                         <div className="whole-index">
                           
@@ -95,9 +93,7 @@ class DirectMessageUsers extends React.Component {
         </Query>
         )
     }}
-    </Query>
-
-      
+    </Query> 
   }
 }
 

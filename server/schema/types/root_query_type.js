@@ -6,10 +6,10 @@ const User = mongoose.model("users");
 const ChannelType = require("./channel_type");
 const Channel = mongoose.model("Channel");
 const Message = mongoose.model("messages");
-const MessageType = require('./message_type');
-const DirectMessageType = require('./direct_message_type');
+const MessageType = require("./message_type");
+const DirectMessageType = require("./direct_message_type");
 const DirectMessage = mongoose.model("DirectMessage");
-const DirectMessageService = require('./../../services/directmessages');
+const DirectMessageService = require("./../../services/directmessages");
 
 const RootQueryType = new GraphQLObjectType({
   name: "RootQueryType",

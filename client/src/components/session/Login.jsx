@@ -1,19 +1,18 @@
-import './session.scss';
-
-import React from 'react';
+import "./session.scss";
+import React from "react";
 import { Mutation } from "react-apollo";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import Mutations from "../../graphql/mutations";
 const { LOGIN_USER } = Mutations;
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       email: "",
       password: ""
     };
-
     this.guestLogIn = this.guestLogIn.bind(this);
   }
 
@@ -21,8 +20,8 @@ class Login extends React.Component {
     e.preventDefault();
     loginUser({
       variables: {
-        email: 'valery@lightchat.com',
-        password: 'password'
+        email: "valery@lightchat.com",
+        password: "password"
       }
     });
   }
@@ -46,9 +45,9 @@ class Login extends React.Component {
         mutation={LOGIN_USER}
         onCompleted={data => {
           const { token, _id } = data.login;
-          localStorage.setItem('auth-token', token);
-          localStorage.setItem('currentUserId', _id);
-          this.props.history.push('/');
+          localStorage.setItem("auth-token", token);
+          localStorage.setItem("currentUserId", _id);
+          this.props.history.push("/");
         }}
         update={(client, data) => this.updateCache(client, data)}
       >

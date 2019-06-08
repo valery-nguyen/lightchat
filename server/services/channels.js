@@ -9,7 +9,6 @@ const createChannel = async (data, context) => {
   try {
     // check for loggedin user
     const token = context.token;
-
     const decoded = await jwt.verify(token, key);
     const { id } = decoded;
     const loggedIn = await User.findById(id);
@@ -26,7 +25,6 @@ const createChannel = async (data, context) => {
 
     // create channel
     const { name } = data;
-  
     const channel = new Channel(
       {
         host_id: id,
@@ -36,7 +34,6 @@ const createChannel = async (data, context) => {
         if (err) throw err;
       }
     );
-
     channel.save();
 
     return { ...channel._doc };
@@ -49,7 +46,6 @@ const updateChannelName = async (data, context) => {
   try {
     // check for loggedin user
     const token = context.token;
-    
     const decoded = await jwt.verify(token, key);
     const { id } = decoded;
     
@@ -71,7 +67,6 @@ const updateChannelName = async (data, context) => {
     // update channel
     const { name } = data;
     channel.name = name || channel.name;
-
     await channel.save();
 
     return { ...channel._doc };
@@ -84,7 +79,6 @@ const addChannelUser = async (data, context) => {
   try {
     // check for loggedin user
     const token = context.token;
-
     const decoded = await jwt.verify(token, key);
     const { id } = decoded;
     const loggedIn = await User.findById(id);
@@ -95,7 +89,6 @@ const addChannelUser = async (data, context) => {
     // update channel
     const { _id } = data;
     let channel = await Channel.findById(_id);
-
     if (!channel.users.includes(String(id))) channel.users.push(id);
     await channel.save();
 
@@ -109,7 +102,6 @@ const removeChannelUser = async (data, context) => {
   try {
     // check for loggedin user
     const token = context.token;
-
     const decoded = await jwt.verify(token, key);
     const { id } = decoded;
     const loggedIn = await User.findById(id);
@@ -122,7 +114,6 @@ const removeChannelUser = async (data, context) => {
     let channel = await Channel.findById(_id);
     let users = channel.users;
     if (users.includes(id)) users.splice(users.indexOf(id), 1);
-
     channel.users = users;
     await channel.save();
 
@@ -136,7 +127,6 @@ const addChannelMessage = async (data, context) => {
   try {
     // check for loggedin user
     const token = context.token;
-    
     const decoded = await jwt.verify(token, key);
     const { id } = decoded;
     const loggedIn = await User.findById(id);
@@ -150,7 +140,6 @@ const addChannelMessage = async (data, context) => {
     let channel = await Channel.findById(_id);
     if (!channel.messages.includes(message)) channel.messages.push(message);
     await channel.save();
-
     return { ...channel._doc };
   } catch (err) {
     throw err;

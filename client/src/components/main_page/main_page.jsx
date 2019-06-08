@@ -1,19 +1,16 @@
-import './main_page.scss';
-
+import "./main_page.scss";
 import React from "react";
 import { ApolloConsumer, Query } from "react-apollo";
 import { Switch, Redirect } from "react-router-dom";
 import AuthRoute from "../../util/route_util";
-import MainNav from './main_nav';
+import MainNav from "./main_nav";
 import CreateChannel from "../channels/CreateChannel";
-import MainChat from '../messages/main_chat';
-import DMChat from '../direct_messages/dm_main';
-
+import MainChat from "../messages/main_chat";
+import DMChat from "../direct_messages/dm_main";
 import Queries from "../../graphql/queries";
 const { IS_LOGGED_IN, CURRENT_USER } = Queries;
 
 class MainPage extends React.Component {
-
   render() {
     return (
       <ApolloConsumer>
@@ -32,7 +29,7 @@ class MainPage extends React.Component {
                             <AuthRoute exact path="/channels/create" component={CreateChannel} routeType="protected" currentUserId={currentUserId}/>
                             <AuthRoute exact path="/channels/:channelId" component={MainChat} routeType="protected" currentUserId={currentUserId}/>
                             <AuthRoute exact path="/dms/:dmID" component={DMChat} routeType="protected" currentUserId={currentUserId}/>
-                            <Redirect from='/' to='/channels/5ce8c122f26a020017cdea36' />
+                            <Redirect from="/" to="/channels/5ce8c122f26a020017cdea36" />
                           </Switch>
                         </div>
                       }}

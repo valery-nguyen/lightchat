@@ -1,11 +1,9 @@
-import './channels.scss';
-
+import "./channels.scss";
 import React from "react";
 import { Query } from "react-apollo";
-import ChannelDetail from './ChannelDetail';
+import ChannelDetail from "./ChannelDetail";
 import Queries from "../../graphql/queries";
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
 const { FETCH_CHANNELS, CURRENT_USER } = Queries;
 
 class ChannelIndex extends React.Component {
@@ -22,7 +20,6 @@ class ChannelIndex extends React.Component {
               const userId = data.currentUserId;
               let inChannel = false;
               return (
-                
                <div className="whole-index">
                   <div className="channel-index">
                     <div className="channel-browse-header">

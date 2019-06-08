@@ -1,12 +1,10 @@
-import './channels.scss';
-
+import "./channels.scss";
 import React from "react";
 import { Query } from "react-apollo";
-import ChannelNavDetail from './ChannelNavDetail';
+import ChannelNavDetail from "./ChannelNavDetail";
 import Queries from "../../graphql/queries";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
-
 const { FETCH_USER_CHANNELS } = Queries;
 
 class UserChannelIndex extends React.Component {
@@ -15,7 +13,7 @@ class UserChannelIndex extends React.Component {
       
       return <Query query={FETCH_USER_CHANNELS} variables={{ id: this.props.currentUserId }}>
         {({ data }) => {
-          let name = '';
+          let name = "";
           if (data.userChannels && data.userChannels[0]) {
             data.userChannels[0].users.forEach(user => {
               if (user._id === this.props.currentUserId) name = name || user.name;
@@ -25,7 +23,7 @@ class UserChannelIndex extends React.Component {
           return (
             <div className="channel-list">
               <h1 id="user-name"><span className="dot"></span>{name}</h1>
-              <h3 className="channel-header"><Link to='/channels'>Channels</Link></h3>
+              <h3 className="channel-header"><Link to="/channels">Channels</Link></h3>
               {!data.userChannels || !data.userChannels.length ? (
                 null
               ) : (

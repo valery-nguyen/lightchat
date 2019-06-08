@@ -1,16 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./components/App";
 import ApolloClient from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { createHttpLink } from "apollo-link-http";
 import { ApolloProvider } from "react-apollo";
-import { HashRouter } from 'react-router-dom';
-import { split } from 'apollo-link';
-import { WebSocketLink } from 'apollo-link-ws';
-import { getMainDefinition } from 'apollo-utilities';
+import { HashRouter } from "react-router-dom";
+import { split } from "apollo-link";
+import { WebSocketLink } from "apollo-link-ws";
+import { getMainDefinition } from "apollo-utilities";
 import Mutations from "./graphql/mutations";
-
 const { VERIFY_USER } = Mutations;
 
 const cache = new InMemoryCache({
@@ -27,7 +26,7 @@ if (process.env.NODE_ENV === "production") {
 const httpLink = createHttpLink({
   uri,
   headers: {
-    authorization: localStorage.getItem('auth-token') || ""
+    authorization: localStorage.getItem("auth-token") || ""
   }
 });
 
@@ -43,7 +42,7 @@ const wsLink = new WebSocketLink({
   options: {
     reconnect: true,
     connectionParams: {
-      authorization: localStorage.getItem('auth-token') || ""
+      authorization: localStorage.getItem("auth-token") || ""
     },
   }
 });
@@ -51,7 +50,7 @@ const wsLink = new WebSocketLink({
 const link = split(
   ({ query }) => {
     const { kind, operation } = getMainDefinition(query);
-    return kind === 'OperationDefinition' && operation === 'subscription';
+    return kind === "OperationDefinition" && operation === "subscription";
   },
   wsLink,
   httpLink

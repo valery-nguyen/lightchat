@@ -97,7 +97,7 @@
 }
 
 .channel-index-create-container {
-  background-image: url('/bg-channel-create.png');
+  background-image: url("/bg-channel-create.png");
   background-position: bottom right; 
   background-repeat: no-repeat;
   background-size: 40%;
@@ -107,7 +107,6 @@
   display: flex;
   justify-content: center;
 }
-
 
 .channel-index-name {
   margin-bottom: -15px;
@@ -218,9 +217,6 @@
   font-weight: bold;
   border-radius: 5px;
   border: 1px solid grey;
-}
-
-.create-channel-button {
 }
 
 .go-channel-button {

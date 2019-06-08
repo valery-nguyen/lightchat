@@ -1,14 +1,14 @@
 const graphql = require("graphql");
 const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLID, GraphQLFloat, GraphQLList } = graphql;
 const mongoose = require("mongoose");
-const UserType = require('./types/user_type');
-const ChannelType = require('./types/channel_type');
-const MessageType = require('./types/message_type');
-const DirectMessageType = require('./types/direct_message_type');
-const AuthService = require('./../services/auth');
-const ChannelsService = require('./../services/channels');
-const MessageService = require('./../services/messages');
-const DirectMessageService = require('./../services/directmessages');
+const UserType = require("./types/user_type");
+const ChannelType = require("./types/channel_type");
+const MessageType = require("./types/message_type");
+const DirectMessageType = require("./types/direct_message_type");
+const AuthService = require("./../services/auth");
+const ChannelsService = require("./../services/channels");
+const MessageService = require("./../services/messages");
+const DirectMessageService = require("./../services/directmessages");
 
 const mutation = new GraphQLObjectType({
   name: "Mutation",

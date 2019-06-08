@@ -13,7 +13,6 @@ class ChannelDetail extends React.Component {
     this.state = {
       message: ""
     };
-
     this.joinChannel = this.joinChannel.bind(this);
     this.leaveChannel = this.leaveChannel.bind(this);
   }
@@ -59,8 +58,7 @@ class ChannelDetail extends React.Component {
                 <div className="channel-info-box">
                   <h3 className="channel-index-name"><a className="channel-index-link" href={`/#/channels/${fetchChannelData.channel._id}`}># {data.channel.name}</a></h3>    
                   <h4 className="channel-info"> Created by {data.channel.host_name} on {data.channel.created_at.slice(0,10)} </h4>  
-                </div>  
-
+                </div>
                 <div className="channel-button-box">      
                   <Mutation
                     mutation={ADD_CHANNEL_USER}
@@ -71,7 +69,6 @@ class ChannelDetail extends React.Component {
                       <div>
                         {this.buttonSwitch(addChannelUser, fetchChannelData.channel._id)}
                       </div>
-                      
                     )}
                   </Mutation>
                 </div> 

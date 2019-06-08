@@ -34,6 +34,4 @@ DirectMessageSchema.statics.getMessages = function(directMessageId) {
     .then(DM => DM.messages);
 };
 
-
-
 module.exports = DirectMessage = mongoose.model("DirectMessage", DirectMessageSchema);

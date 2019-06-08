@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const User = mongoose.model("users");
 
@@ -13,12 +13,12 @@ const ChannelSchema = new Schema({
   },
   users: [{
     type: Schema.Types.ObjectId,
-    ref: 'users',
+    ref: "users",
     default: []
   }],
   messages: [{
     type: Schema.Types.ObjectId,
-    ref: 'messages',
+    ref: "messages",
     default: []
   }],
   created_at: {
@@ -43,4 +43,4 @@ ChannelSchema.statics.findMessages = function (channelId) {
     .then(channel => channel.messages);
 };
 
-module.exports = Channel = mongoose.model('Channel', ChannelSchema);
+module.exports = Channel = mongoose.model("Channel", ChannelSchema);

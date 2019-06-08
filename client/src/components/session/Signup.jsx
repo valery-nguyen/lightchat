@@ -1,9 +1,8 @@
-import './session.scss';
-import { Link } from 'react-router-dom';
+import "./session.scss";
+import { Link } from "react-router-dom";
 import React, { Component } from "react";
 import { Mutation } from "react-apollo";
 import Mutations from "../../graphql/mutations";
-
 const { SIGNUP_USER } = Mutations;
 
 class Signup extends Component {
@@ -36,7 +35,7 @@ class Signup extends Component {
         onCompleted={data => {
           const { token, _id } = data.signup;
           localStorage.setItem("auth-token", token);
-          localStorage.setItem('currentUserId', _id);
+          localStorage.setItem("currentUserId", _id);
           this.props.history.push("/");
         }}
         update={(client, data) => this.updateCache(client, data)}

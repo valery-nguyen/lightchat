@@ -1,21 +1,18 @@
-import './messages.scss';
-import React from 'react';
+import "./messages.scss";
+import React from "react";
 import { Query, Subscription } from "react-apollo";
 import Queries from "../../graphql/queries";
 import Subscriptions from "../../graphql/subscriptions";
-import CreateMessage from './create_message';
-import { HeaderConsole } from './../main_page/header_console';
+import CreateMessage from "./create_message";
+import { HeaderConsole } from "./../main_page/header_console";
 const { FETCH_CHANNEL } = Queries;
 const { NEW_MESSAGE_SUBSCRIPTION, REMOVED_MESSAGE_SUBSCRIPTION } = Subscriptions;
 
 class MainChat extends React.Component {
   render() {
     let channelId;
-
     let element = document.getElementById("bottom");
     if (element !== null) element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-    
-
     if (!this.props.history) {
       channelId = "5ce2f5d2c902631a973f73e6";
     } else {
@@ -43,7 +40,6 @@ class MainChat extends React.Component {
                   subscription={REMOVED_MESSAGE_SUBSCRIPTION}
                 >{({ data, loading }) => {
                   const removedMessageData = data;
-
                   if (addedMessageData && !allMessagesIds.includes(addedMessageData.messageSent._id) &&
                     addedMessageData.messageSent.channel === this.props.history.location.pathname.slice(10)) {
                     allMessages.push(addedMessageData.messageSent);
@@ -56,7 +52,6 @@ class MainChat extends React.Component {
                     allMessagesIds.splice(removedMessageIdx, 1);
                     window.scrollTo(0, 9999999999);
                   }
-
                   return (
                     <div>
                       <HeaderConsole name={"#" + channelName}/>
@@ -65,11 +60,11 @@ class MainChat extends React.Component {
                           {allMessages.map((message, idx) => (
                             <li className="message-element" key={idx}>
                               <div className="message-object">
-                              <img className="message-pic" src={require('./pika.jpg')} alt="pika"/>
+                              <img className="message-pic" src="/images/pika.jpg" alt="pika"/>
                                 <div className="message-box">
                                   <div className="message-info">
                                     <p className="message-author">{message.author}</p>
-                                    <p className="message-date">{message.date.slice(0, 10)} {parseInt(message.date.slice(11, 13)) - 4}:{message.date.slice(14, 16)}{((parseInt(message.date.slice(11, 13)) - 4) >= 12) ? 'pm' : 'am'}</p>
+                                    <p className="message-date">{message.date.slice(0, 10)} {parseInt(message.date.slice(11, 13)) - 4}:{message.date.slice(14, 16)}{((parseInt(message.date.slice(11, 13)) - 4) >= 12) ? "pm" : "am"}</p>
                                   </div>
                                   <p className="message-body">{message.body}</p>
                                 </div>

@@ -1,10 +1,9 @@
-import './messages.scss';
-
+import "./messages.scss";
 import React, { Component } from "react";
 import { Mutation } from "react-apollo";
-import Queries from '../../graphql/queries';
+import Queries from "../../graphql/queries";
 import Mutations from "../../graphql/mutations";
-import { withRouter } from 'react-router';
+import { withRouter } from "react-router";
 const { FETCH_MESSAGES } = Queries;
 const { NEW_MESSAGE } = Mutations;
 

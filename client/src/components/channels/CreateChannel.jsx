@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Mutation } from "react-apollo";
-
 import Mutations from "../../graphql/mutations";
 import Queries from "../../graphql/queries";
 const { CREATE_CHANNEL } = Mutations;

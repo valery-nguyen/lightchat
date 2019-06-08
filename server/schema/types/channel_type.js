@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const graphql = require("graphql");
-const graphqlisodate = require('graphql-iso-date');
+const graphqlisodate = require("graphql-iso-date");
 const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList } = graphql;
 const { GraphQLDateTime } = graphqlisodate;
 
@@ -18,13 +18,13 @@ const ChannelType = new GraphQLObjectType({
     },
     created_at: { type: GraphQLDateTime },
     users: {
-      type: new GraphQLList(require('./user_type')),
+      type: new GraphQLList(require("./user_type")),
       resolve(parentValue) {
         return Channel.findUsers(parentValue._id);
       }
     },
     messages: {
-      type: new GraphQLList(require('./message_type')),
+      type: new GraphQLList(require("./message_type")),
       resolve(parentValue) {
         return Channel.findMessages(parentValue._id);
       }

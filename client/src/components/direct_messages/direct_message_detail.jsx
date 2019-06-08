@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Queries from "../../graphql/queries";
 const { FETCH_DIRECT_MESSAGES } = Queries;
 
-
 class DirectMessageDetail extends React.Component {
   constructor(props){
     super(props);
@@ -12,11 +11,9 @@ class DirectMessageDetail extends React.Component {
     this.state = {
       message: ""
     };
-
   }
 
   render() {
-
     return (
       <Query query={FETCH_DIRECT_MESSAGES} variables={{ id: this.props.id }}>
         {({ loading, error, data }) => {

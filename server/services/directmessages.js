@@ -9,7 +9,6 @@ const addMessageToDM = async (data, context) => {
   try {
     // check for loggedin user
     const token = context.token;
-    
     const decoded = await jwt.verify(token, key);
     const { id } = decoded;
     const loggedIn = await User.findById(id);
@@ -21,7 +20,6 @@ const addMessageToDM = async (data, context) => {
     // add direct message
     const { _id, body } = data;
     let dm = await DirectMessage.findById(_id);
-    
 
     let newMessage = new Message({
       user_id: id,
@@ -32,11 +30,9 @@ const addMessageToDM = async (data, context) => {
       if (!dm.messages.includes(message._id)) dm.messages.push(message._id);
       await dm.save();
     });
+    await pubsub.publish("DIRECT_MESSAGE_SENT", { directMessageSent: dm });
     
-    await pubsub.publish('DIRECT_MESSAGE_SENT', { directMessageSent: dm });
-
     return dm;
-
   } catch (err) {
     throw err;
   }
@@ -46,7 +42,6 @@ const createDirectMessage = async (data, context) => {
   try {
     // check for loggedin user
     const token = context.token;
-    
     const decoded = await jwt.verify(token, key);
     const { id } = decoded;
     const loggedIn = await User.findById(id);
@@ -60,7 +55,6 @@ const createDirectMessage = async (data, context) => {
     let dm = new DirectMessage({
       users: [id, otheruser]
     });
-
     dm.save();
 
     return dm;
@@ -69,12 +63,11 @@ const createDirectMessage = async (data, context) => {
   }
 };
 
-// gets the DM's for a user
+// gets the DM"s for a user
 const fetchUserMessages = async (args, context) => {
   try {
     const id = args._id;
     const loggedIn = await User.findById(id);
-
     if (!loggedIn) {
       throw new Error("A logged in user is required");
     }

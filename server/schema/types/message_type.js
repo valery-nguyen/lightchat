@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const graphql = require("graphql");
-const graphqlisodate = require('graphql-iso-date');
+const graphqlisodate = require("graphql-iso-date");
 const { GraphQLDateTime } = graphqlisodate;
 const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList } = graphql;
 const Message = mongoose.model("messages");

@@ -7,6 +7,7 @@ const { NEW_DIRECT_MESSAGE } = Mutations;
 class CreateMessage extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       body: "",
       directMessage: ""

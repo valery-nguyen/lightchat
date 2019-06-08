@@ -3,13 +3,12 @@ const key = require("../../config/keys").secretOrKey;
 const User = require("../models/User");
 const Message = require("../models/Message");
 const Channel = require("../models/Channel");
-const pubsub = require('../schema/pubsub');
-const channelService = require('./channels');
+const pubsub = require("../schema/pubsub");
+const channelService = require("./channels");
 
 const addMessage = async (data, context) => {
   const token = context.token;
   const { body, channel } = data;
-
   const decoded = jwt.verify(token, key);
   const { id } = decoded;
   if (id) {
@@ -21,7 +20,7 @@ const addMessage = async (data, context) => {
 
     await message.save();
     await channelService.addChannelMessage({_id: channel, message: message}, context);
-    await pubsub.publish('MESSAGE_SENT', { messageSent: message, channel: channel});
+    await pubsub.publish("MESSAGE_SENT", { messageSent: message, channel: channel});
     return message;
   } else {
     throw new Error (
@@ -31,7 +30,6 @@ const addMessage = async (data, context) => {
 };
 
 const updateMessage = async ({ id, body }) => {
-  
   const updateObj = {};
 
   if (id) updateObj.id = id;
@@ -60,13 +58,13 @@ const deleteMessage = async (data, context) => {
     
     let channel = await Channel.findById(message.channel);
     let messages = channel.messages;
-
+    
     if (messages.includes(_id)) messages.splice(messages.indexOf(_id), 1);
 
     channel.messages = messages;
     await channel.save();
     await message.remove();
-    await pubsub.publish('MESSAGE_REMOVED', { messageRemoved: message, channel: channel });
+    await pubsub.publish("MESSAGE_REMOVED", { messageRemoved: message, channel: channel });
 
     return message;
   } catch (err) {

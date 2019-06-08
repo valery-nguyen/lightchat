@@ -5,9 +5,9 @@ import Login from "./session/Login";
 import Signup from "./session/Signup";
 import ChannelIndex from "./channels/ChannelIndex";
 import CreateChannel from "./channels/CreateChannel";
-import MainPage from './main_page/main_page';
-import DMUsers from './direct_messages/direct_message_users';
-import './app.scss';
+import MainPage from "./main_page/main_page";
+import DMUsers from "./direct_messages/direct_message_users";
+import "./app.scss";
 
 const App = () => {
   return (

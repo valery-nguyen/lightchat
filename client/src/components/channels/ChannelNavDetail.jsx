@@ -14,14 +14,12 @@ class ChannelNavDetail extends React.Component {
     this.state = {
       message: ""
     };
-
     this.joinChannel = this.joinChannel.bind(this);
     this.leaveChannel = this.leaveChannel.bind(this);
   }
 
   joinChannel(e, addChannelUser) {
     e.preventDefault();
-
     addChannelUser({
       variables: {
         id: this.props.id,
@@ -31,13 +29,11 @@ class ChannelNavDetail extends React.Component {
 
   leaveChannel(e, removeChannelUser) {
     e.preventDefault();
-
     removeChannelUser({
       variables: {
         id: this.props.id,
       }
     });
-
     window.location.reload();
   }
 
