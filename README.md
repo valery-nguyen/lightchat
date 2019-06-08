@@ -66,8 +66,8 @@ heroku container:release web -a lightchat-app
 // server/server.js
 
 const express = require("express");
-const  { createServer } = require('http');
-const  { SubscriptionServer } = require('subscriptions-transport-ws');
+const  { createServer } = require("http");
+const  { SubscriptionServer } = require("subscriptions-transport-ws");
 
 const app = express();
 app.use(
@@ -90,7 +90,7 @@ SubscriptionServer.create({
   schema,
 }, {
     server: ws,
-    path: '/',
+    path: "/",
 });
 
 const port = process.env.PORT || 5000;
@@ -107,7 +107,7 @@ ws.listen(port, () => {
 
 let uri;
 if (process.env.NODE_ENV === "production") {
-  uri = `/graphql`;
+  uri = "/graphql";
 } else {
   uri = "http://localhost:5000/graphql";
 }
@@ -115,7 +115,7 @@ if (process.env.NODE_ENV === "production") {
 const httpLink = createHttpLink({
   uri,
   headers: {
-    authorization: localStorage.getItem('auth-token') || ""
+    authorization: localStorage.getItem("auth-token") || ""
   }
 });
 
@@ -131,7 +131,7 @@ const wsLink = new WebSocketLink({
   options: {
     reconnect: true,
     connectionParams: {
-      authorization: localStorage.getItem('auth-token') || ""
+      authorization: localStorage.getItem("auth-token") || ""
     },
   }
 });
@@ -139,7 +139,7 @@ const wsLink = new WebSocketLink({
 const link = split(
   ({ query }) => {
     const { kind, operation } = getMainDefinition(query);
-    return kind === 'OperationDefinition' && operation === 'subscription';
+    return kind === "OperationDefinition" && operation === "subscription";
   },
   wsLink,
   httpLink
@@ -153,7 +153,7 @@ const link = split(
 ```js
 // server/schema/pubsub.js
 
-const { PubSub } = require('apollo-server');
+const { PubSub } = require("apollo-server");
 const pubsub = new PubSub();
 module.exports = pubsub;
 ```
@@ -186,7 +186,7 @@ const messageSent = {
     return data.messageSent;
   },
   subscribe: withFilter(
-    () => pubsub.asyncIterator(['MESSAGE_SENT']),
+    () => pubsub.asyncIterator(["MESSAGE_SENT"]),
     (payload, variables) => {
       return true;
     }
@@ -202,7 +202,7 @@ const messageSent = {
 const addMessage = async (data, context) => {
   ...
   
-  await pubsub.publish('MESSAGE_SENT', { messageSent: message, channel: channel});
+  await pubsub.publish("MESSAGE_SENT", { messageSent: message, channel: channel});
   ...
 };
 ```
