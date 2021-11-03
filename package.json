@@ -37,6 +37,6 @@
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
     "subscriptions-transport-ws": "^0.9.16",
-    "validator": "^10.11.0"
+    "validator": "^13.7.0"
   }
 }
