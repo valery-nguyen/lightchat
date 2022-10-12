@@ -17,7 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "apollo-link-ws": "^1.0.17",
-    "apollo-server": "^2.5.0",
+    "apollo-server": "^2.25.4",
     "apollo-server-express": "^2.5.0",
     "apollo-utilities": "^1.2.1",
     "axios": "^0.18.0",
